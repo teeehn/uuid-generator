@@ -86,7 +86,7 @@ import './main.scss';
         app_container: function () {
             return `
                 <div class="app-uuid-wrapper">
-                <h1>UUID Generator</h1>
+                    <h1>UUID Generator</h1>
                     <div class="js-uuid-output uuid-output"></div>
                 </div>
             `;
