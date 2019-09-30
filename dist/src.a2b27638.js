@@ -373,7 +373,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     },
     // Components
     app_container: function app_container() {
-      return "\n                <div class=\"\">\n                <h1>UUID Generator</h1>\n                    <div class=\"js-uuid-output uuid-output\"></div>\n                </div>\n            ";
+      return "\n                <div class=\"app-uuid-wrapper\">\n                <h1>UUID Generator</h1>\n                    <div class=\"js-uuid-output uuid-output\"></div>\n                </div>\n            ";
     },
     create_button: function create_button() {
       var button = utils.make_element("button", "Click to Create UUID", {

@@ -43,6 +43,9 @@ import './main.scss';
             const keys = Object.keys(handlers);
             keys.forEach((key) => new_element.addEventListener(key, handlers[key]));
             return new_element;
+        },
+        mount_node: function (node, mount_point, options = {}) {
+            if (!node or !mount_point)
         }
     };
     const tn_guid = {
@@ -71,7 +74,7 @@ import './main.scss';
 
         app_container: function () {
             return `
-                <div class="">
+                <div class="app-uuid-wrapper">
                 <h1>UUID Generator</h1>
                     <div class="js-uuid-output uuid-output"></div>
                 </div>
