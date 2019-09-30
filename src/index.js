@@ -45,7 +45,18 @@ import './main.scss';
             return new_element;
         },
         mount_node: function (node, mount_point, options = {}) {
-            if (!node or !mount_point)
+            if (!node || !mount_point) {
+                return;
+            };
+            const {
+                top
+            } = options;
+            if (top) {
+                if (mount_point && mount_point.firstChild) {
+                    return mount_point.insertBefore(node, mount_point.firstChild);
+                }
+            }
+            return mount_point.appendChild(node);
         }
     };
     const tn_guid = {
@@ -97,9 +108,24 @@ import './main.scss';
         // Handlers
 
         handle_create: function (event) {
-            const guid = uuidv4();
-            tn_guid.state.uuid_list.push(guid);
-            tn_guid.refs.output.innerHTML = `<strong>${guid}</strong>`;
+            const uuid = uuidv4();
+            tn_guid.state.uuid_list.push(uuid);
+            const item = utils.make_element(
+                "div",
+                uuid,
+                {
+                    attributes: {
+                        style: "font-weight: bold; margin: 1rem 0;"
+                    }
+                }
+            );
+            utils.mount_node(
+                item,
+                tn_guid.refs.output,
+                {
+                    top: true
+                }
+            );
         }
     };
 

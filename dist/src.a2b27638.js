@@ -354,6 +354,24 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
         return new_element.addEventListener(key, handlers[key]);
       });
       return new_element;
+    },
+    mount_node: function mount_node(node, mount_point) {
+      var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+
+      if (!node || !mount_point) {
+        return;
+      }
+
+      ;
+      var top = options.top;
+
+      if (top) {
+        if (mount_point && mount_point.firstChild) {
+          return mount_point.insertBefore(node, mount_point.firstChild);
+        }
+      }
+
+      return mount_point.appendChild(node);
     }
   };
   var tn_guid = {
@@ -386,9 +404,16 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     },
     // Handlers
     handle_create: function handle_create(event) {
-      var guid = (0, _v.default)();
-      tn_guid.state.uuid_list.push(guid);
-      tn_guid.refs.output.innerHTML = "<strong>".concat(guid, "</strong>");
+      var uuid = (0, _v.default)();
+      tn_guid.state.uuid_list.push(uuid);
+      var item = utils.make_element("div", uuid, {
+        attributes: {
+          style: "font-weight: bold; margin: 1rem 0;"
+        }
+      });
+      utils.mount_node(item, tn_guid.refs.output, {
+        top: true
+      });
     }
   };
 
