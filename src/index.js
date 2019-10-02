@@ -1,7 +1,7 @@
 import uuidv4 from "uuid/v4";
 import './main.scss';
 
-(function(){
+(function() {
     const utils = {
         make_element: function (type = "div", children, options = {}) {
             let el = document.createElement(type);
