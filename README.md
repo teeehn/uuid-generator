@@ -1,3 +1,3 @@
 # Random UUID Generator
 
-Uses [uuid](https://www.npmjs.com/package/uuid) package to generate random uuid.
+A simple js app that uses [uuid](https://www.npmjs.com/package/uuid) package to generate random uuid.
